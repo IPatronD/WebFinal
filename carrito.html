@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio & Progetto - Carrito</title>
+    <link rel="stylesheet" href="carrito.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="dark-mode.css">
+    <link href="IMG_Extra/logosinfondo.png" rel="icon" type="image/x-icon" />
+    <script src="main.js"></script>
+    <script src="fullscreen.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="language-switcher.js"></script>
+</head>
+
+<body>
+    <div class="pre-carga">
+        <div class="pre-carga-contenido">
+            <img src="IMG_Extra/logosinfondo.png" alt="Logo" class="logo" aling="center">
+            <div class="loader"></div>
+            <p class="nombre-pagina"> Studio & Progetto </p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="IMG_Extra/logosinfondo.png" alt="Studio & Progetto Logo"
+                    style="vertical-align: middle; margin-right: 8px;">
+                <span style="vertical-align: middle; display: inline-block; line-height: 1;" class="logo-text">
+                    Studio &<br>
+                    <span>Progetto</span>
+                </span>
+            </a>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html" class="active" data-icon="fas fa-home"
+                            data-translate="nav-inicio">Inicio</a></li>
+                    <li><a href="productos.html" data-icon="fas fa-box" data-translate="nav-productos">Productos</a>
+                    </li>
+                    <li><a href="copias-impresion.html" data-icon="fas fa-print" data-translate="nav-copias">Copias e
+                            Impresiones</a></li>
+                    <li> <a href="conocenos.html" data-icon="fas fa-users" data-translate="nav-conocenos"> Conócenos</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="switch-container">
+                <input type="checkbox" id="toggle-idiomas" class="toggle-idiomas">
+                <label for="toggle-idiomas" class="idioma-switch">
+                    <span class="switch-slider"></span>
+                </label>
+            </div>
+            <div class="header-icons">
+                <a href="carrito.html" class="nav-icon" aria-label="Carrito"><i class="fas fa-shopping-cart"></i></a>
+                <a href="iniciar-sesion.html" class="nav-icon" aria-label="Iniciar sesión"><i
+                        class="fas fa-user"></i></a>
+                <button class="dark-mode-toggle" aria-label="Alternar modo oscuro"><i class="fas fa-moon"></i></button>
+            </div>
+            <button class="mobile-menu" aria-label="Menú móvil"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <!-- Contenido del carrito -->
+    <section class="cart-section">
+        <div class="container">
+            <h1>Tu Carrito de Compras</h1>
+
+            <div class="cart-container">
+                <div class="cart-items" id="cart-items-container">
+                    <!-- Los productos se agregarán dinámicamente aquí -->
+                    <div class="cart-empty" id="empty-cart-message">
+                        <p>No has comprado nada todavía</p>
+                        <p>¿Deseas agregar productos al carrito?</p>
+                        <a href="productos.html" class="btn">Ir a productos</a>
+                    </div>
+                </div>
+
+                <div class="cart-summary">
+                    <h2 data-translate="car-title">Resumen de compra</h2>
+
+                    <div class="summary-row">
+                        <span data-translate="car-sub">Subtotal:</span>
+                        <span id="subtotal">S/0.00</span>
+                    </div>
+
+                    <div class="summary-row">
+                        <span data-translate="car-del">Delivery:</span>
+                        <span id="delivery-cost">S/0.00</span>
+                    </div>
+
+                    <div class="summary-row total">
+                        <span data-translate="car-total">Total:</span>
+                        <span id="total">S/0.00</span>
+                    </div>
+
+                    <div class="delivery-option">
+                        <label>
+                            <input type="checkbox" id="deliveryCheckbox">
+                            <span data-translate="car-btn-del">Necesito delivery</span>
+                        </label>
+                    </div>
+
+
+                    <button class="btn checkout-btn" id="procesarPagoBtn" onclick="abrirModalPagos()">
+                        <span data-translate="car-btn">Proceder al pago</span>
+                    </button>
+                    <a href="productos.html" class="continue-shopping" data-translate="car-con">Continuar comprando</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp flotante -->
+    <a href="https://wa.me/51939275406" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+
+    <div id="footer-trigger"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-section">
+          <h3 data-translate="footer-contacto">Contacto</h3>
+          <p><i class="fas fa-phone"></i> +51 939275406</p>
+          <p><i class="fas fa-envelope"></i> studioprogettosac@gmail.com</p>
+        </div>
+        <div class="footer-section">
+          <h3 data-translate="footer-sobre-nosotros">Sobre nosotros</h3>
+          <ul>
+            <li><a href="politicas-privacidad.html" data-translate="footer-politica">Políticas de Privacidad</a></li>
+            <li><a href="terminos-condiciones.html" data-translate="footer-terminos">Términos y Condiciones</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3 data-translate="footer-horario">Horarios</h3>
+          <p data-translate="footer-day">Lunes a Sábado</p>
+          <p>8am - 9pm</p>
+        </div>
+        <div class="footer-section">
+          <h3 data-translate="footer-enlaces">Enlaces rápidos</h3>
+          <ul>
+            <li><a href="productos.html" data-translate="footer-ofertas">Ofertas Especiales</a></li>
+            <li><a href="iniciar-sesion.html" data-translate="footer-iniciar-sesion">Iniciar Sesión</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3 data-translate="footer-siguenos">Síguenos</h3>
+          <ul class="wrapper">
+            <li>
+              <a class="icon facebook" href="https://www.facebook.com/profile.php?id=61576368759571" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </li>
+            <li>
+              <a class="icon instagram"
+                href="https://www.instagram.com/studioprogettosac/?utm_source=ig_web_button_share_sheet"
+                target="_blank">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </li>
+            <li>
+              <a class="icon tiktok" href="https://www.tiktok.com/@tu_usuario" target="_blank">
+                <i class="fab fa-tiktok"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>© 2025 Studio & Progetto. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+    <script>
+        // Mostrar contenido después de la precarga
+        function mostrarContenido() {
+            document.querySelector('.pre-carga').classList.add('desaparecer');
+            setTimeout(() => {
+                document.querySelector('.pre-carga').style.display = 'none';
+            }, 500);
+        }
+        setTimeout(mostrarContenido, 2000);
+        window.addEventListener('load', mostrarContenido);
+
+        // Menú móvil
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navList = document.querySelector('.navbar ul');
+        mobileMenu.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+
+        // Carrito de compras
+        document.addEventListener('DOMContentLoaded', function () {
+            // Verificar si hay productos en el carrito
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItemsContainer = document.getElementById('cart-items-container');
+            const emptyCartMessage = document.getElementById('empty-cart-message');
+            const subtotalElement = document.getElementById('subtotal');
+            const deliveryCostElement = document.getElementById('delivery-cost');
+            const totalElement = document.getElementById('total');
+            const checkoutButton = document.getElementById('checkout');
+            const deliveryCheckbox = document.getElementById('deliveryCheckbox');
+            const totalPriceElement = document.getElementById('total-price');
+
+            const cartData = JSON.parse(localStorage.getItem('cart')) || [];
+            if (cartData.length === 0) {
+                emptyCartMessage.style.display = 'block'; // Mostrar mensaje que el carrito está vacío
+                cartItemsContainer.style.display = 'none';
+                if (totalPriceElement) totalPriceElement.textContent = 'S/ 0.00';
+                return;
+            } else {
+                emptyCartMessage.style.display = 'none';
+                cartItemsContainer.style.display = 'block';
+            }
+            cartItemsContainer.innerHTML = '';
+            let total = 0;
+            cartData.forEach(item => {
+                const div = document.createElement('div');
+                div.classList.add('cart-item');
+                div.innerHTML = `<h3>${item.name}</h3>
+            <p> Cantidad: ${item.quantity}</p>
+            <p> Precio unitario: S/ ${item.price.toFixed(2)}</p>
+            <p> Subtotal: S/ ${(item.price * item.quantity).toFixed(2)}</p>
+            `;
+                cartItemsContainer.appendChild(div);
+                total += item.price * item.quantity;
+            });
+            if (totalPriceElement) {
+                totalPriceElement.textContent = `S/ ${total.toFixed(2)}`;
+            }
+
+            function renderCart() {
+                cartItemsContainer.innerHTML = '';
+                if (cart.length === 0) {
+                    emptyCartMessage.style.display = 'block';
+                    checkoutButton.disabled = true; // Deshabilitar el botón de checkout
+                    return;
+                }
+                emptyCartMessage.style.display = 'none';
+
+                // Crear encabezado
+                const cartHeader = document.createElement('div');
+                cartHeader.className = 'cart-header';
+                cartHeader.innerHTML = `
+            <div class="header-item">Producto</div>
+            <div class="header-item">Precio</div>
+            <div class="header-item">Cantidad</div>
+            <div class="header-item">Total</div>
+            <div class="header-item">Eliminar</div>
+        `;
+                cartItemsContainer.appendChild(cartHeader);
+
+                // Agregar cada producto
+                cart.forEach((item, index) => {
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'cart-item';
+                    cartItem.innerHTML = `
+                <div class="item-product">
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="product-info">
+                        <h3>${item.name}</h3>
+                    </div>
+                </div>
+                <div class="item-price">S/${item.price.toFixed(2)}</div>
+                <div class="item-quantity">
+                    <button class="quantity-btn decrease" data-index="${index}">-</button>
+                    <input type="number" value="${item.quantity}" min="1" data-index="${index}">
+                    <button class="quantity-btn increase" data-index="${index}">+</button>
+                </div>
+                <div class="item-total">S/${(item.price * item.quantity).toFixed(2)}</div>
+                <div class="item-remove">
+                    <button class="remove-btn" data-index="${index}"><i class="fas fa-trash"></i></button>
+                </div>
+            `;
+                    cartItemsContainer.appendChild(cartItem);
+                });
+                updateTotals(); // Llama a updateTotals aquí para actualizar los totales
+            }
+
+            // Actualizar totales
+            function updateTotals() {
+                const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                const deliveryCost = deliveryCheckbox.checked ? 5 : 0;
+                const total = subtotal + deliveryCost;
+                if (subtotalElement) subtotalElement.textContent = `S/${subtotal.toFixed(2)}`;
+                if (deliveryCostElement) deliveryCostElement.textContent = `S/${deliveryCost.toFixed(2)}`;
+                if (totalElement) totalElement.textContent = `S/${total.toFixed(2)}`;
+                if (checkoutButton) checkoutButton.disabled = cart.length === 0;
+            }
+
+            // Eventos de cantidad
+            cartItemsContainer.addEventListener('click', function (e) {
+                if (e.target.classList.contains('decrease')) {
+                    const index = e.target.getAttribute('data-index');
+                    if (cart[index].quantity > 1) {
+                        cart[index].quantity--;
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        renderCart();
+                        updateTotals();
+                    }
+                } else if (e.target.classList.contains('increase')) {
+                    const index = e.target.getAttribute('data-index');
+                    cart[index].quantity++;
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    renderCart();
+                    updateTotals();
+                } else if (e.target.classList.contains('remove-btn') || e.target.closest('.remove-btn')) {
+                    const index = e.target.getAttribute('data-index') ||
+                        e.target.closest('.remove-btn').getAttribute('data-index');
+                    cart.splice(index, 1);
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    renderCart();
+                    updateTotals();
+                }
+            });
+
+
+            // Eventos de cambio en inputs de cantidad
+            cartItemsContainer.addEventListener('change', function (e) {
+                if (e.target.tagName === 'INPUT' && e.target.type === 'number') {
+                    const index = e.target.getAttribute('data-index');
+                    const newQuantity = parseInt(e.target.value);
+                    if (newQuantity > 0) {
+                        cart[index].quantity = newQuantity;
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        renderCart();
+                        updateTotals();
+                    } else {
+                        e.target.value = cart[index].quantity;
+                    }
+                }
+            });
+            deliveryCheckbox.addEventListener('change', () => {
+                updateTotals();
+            });
+
+            // Renderizar carrito inicial
+            renderCart();
+            updateTotals();
+        });
+    </script>
+
+    <div id="modalPagos"
+        style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:1000; overflow-y: auto; animation: fadeIn 0.3s ease-out;">
+        <div
+            style="background:white; width:90%; max-width:600px; margin:50px auto; padding:30px; border-radius:15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); position: relative;">
+            <!-- Botón de cerrar con diseño mejorado -->
+            <button onclick="cerrarModalPagos()"
+                style="position:absolute; top:15px; right:15px; background:none; border:none; font-size:24px; color:#666; cursor:pointer; transition:color 0.3s;"
+                onmouseover="this.style.color='#ff5252'" onmouseout="this.style.color='#666'">×</button>
+
+            <!-- Encabezado con logo -->
+            <div style="text-align:center; margin-bottom:25px;">
+                <h2 style="color:#333; margin-bottom:5px; font-size:28px; font-weight:600;">Métodos de Pago</h2>
+                <p style="color:#666; font-size:16px;">Studio & Progetto - Pago seguro</p>
+                <div
+                    style="height:3px; background:linear-gradient(to right, #4CAF50, #2196F3); width:100px; margin:15px auto;">
+                </div>
+            </div>
+
+            <!-- Yape - Diseño mejorado -->
+            <div style="margin:20px 0; padding:20px; border-radius:10px; background:#f9f9f9; border-left:4px solid #4CAF50; transition:transform 0.3s, box-shadow 0.3s;"
+                onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.1)'"
+                onmouseout="this.style.transform='none'; this.style.boxShadow='none'">
+                <div style="display:flex; align-items:center; margin-bottom:15px;">
+                    <img src="IMG_Extra/Img Yape.jpg" alt="QR Yape"
+                        style="width:120px; height:120px; border-radius:8px; object-fit:cover; border:1px solid #eee;">
+                    <div style="margin-left:20px;">
+                        <h3 style="color:#333; margin:0 0 10px 0; font-size:22px; display:flex; align-items:center;">
+                            <svg style="margin-right:10px;" width="24" height="24" viewBox="0 0 24 24" fill="#4CAF50"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4.59-12.42L10 14.17l-2.59-2.58L6 13l4 4 8-8z" />
+                            </svg>
+                            Yape
+                        </h3>
+                        <p style="color:#666; margin:5px 0; font-size:16px;">Escanea el código QR o usa el número:</p>
+                        <div
+                            style="background:#4CAF50; color:white; padding:8px 12px; border-radius:20px; display:inline-block; font-weight:bold; font-size:18px;">
+                            991 544 520
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transferencia Bancaria - Diseño mejorado -->
+            <div style="margin:20px 0; padding:20px; border-radius:10px; background:#f9f9f9; border-left:4px solid #2196F3; transition:transform 0.3s, box-shadow 0.3s;"
+                onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.1)'"
+                onmouseout="this.style.transform='none'; this.style.boxShadow='none'">
+                <h3 style="color:#333; margin:0 0 15px 0; font-size:22px; display:flex; align-items:center;">
+                    <svg style="margin-right:10px;" width="24" height="24" viewBox="0 0 24 24" fill="#2196F3"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z" />
+                    </svg>
+                    Transferencia Bancaria
+                </h3>
+
+                <!-- BBVA -->
+                <div
+                    style="margin-bottom:15px; padding:15px; background:white; border-radius:8px; display:flex; align-items:center;">
+                    <div
+                        style="background:#1a3e8c; color:white; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin-right:15px; font-weight:bold;">
+                        BBVA</div>
+                    <div>
+                        <p style="color:#333; margin:0; font-weight:500;">Cuenta: <span
+                                style="font-family:monospace; font-size:16px;">191-00293845-0-12</span></p>
+                        <p style="color:#666; margin:5px 0 0 0; font-size:14px;">Titular: Studio & Progetto</p>
+                    </div>
+                    <button onclick="copiarAlPortapapeles('191-00293845-0-12')"
+                        style="margin-left:auto; background:#f0f0f0; border:none; padding:8px 12px; border-radius:5px; cursor:pointer; display:flex; align-items:center;"
+                        title="Copiar número de cuenta">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#666" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- BCP-->
+                <div style="padding:15px; background:white; border-radius:8px; display:flex; align-items:center;">
+                    <div
+                        style="background:#f78e1e; color:white; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin-right:15px; font-weight:bold;">
+                        BCP</div>
+                    <div>
+                        <p style="color:#333; margin:0; font-weight:500;">Cuenta: <span
+                                style="font-family:monospace; font-size:16px;">570-79169547-0-92</span></p>
+                        <p style="color:#666; margin:5px 0 0 0; font-size:14px;">Titular: Studio & Progetto</p>
+                    </div>
+                    <button onclick="copiarAlPortapapeles('898-309485739-01')"
+                        style="margin-left:auto; background:#f0f0f0; border:none; padding:8px 12px; border-radius:5px; cursor:pointer; display:flex; align-items:center;"
+                        title="Copiar número de cuenta">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#666" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Nota importante -->
+            <div
+                style="margin-top:25px; padding:15px; background:#fff8e1; border-radius:8px; border-left:4px solid #FFC107;">
+                <div style="display:flex; align-items:flex-start;">
+                    <svg style="margin-right:10px; flex-shrink:0;" width="20" height="20" viewBox="0 0 24 24"
+                        fill="#FFC107" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+                    </svg>
+                    <p style="color:#666; margin:0; font-size:14px;">
+                        <strong>Importante:</strong> Después de realizar el pago, envíanos el comprobante a nuestro
+                        WhatsApp para procesar tu pedido.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+
+    <script>
+        // Función para copiar al portapapeles
+        function copiarAlPortapapeles(texto) {
+            navigator.clipboard.writeText(texto).then(() => {
+                alert("Número de cuenta copiado: " + texto);
+            }).catch(err => {
+                console.error('Error al copiar: ', err);
+            });
+        }
+    </script>
+
+    <script>
+        // Función para ABRIR el modal
+        function abrirModalPagos() {
+            console.log("Función abrirModalPagos ejecutada"); // Debug
+
+            // Verifica si hay productos en el carrito
+            const carrito = JSON.parse(localStorage.getItem('cart')) || [];
+            if (carrito.length === 0) {
+                mostrarMensajeCarritoVacio();
+                return;
+            }
+
+            // Muestra el modal
+            document.getElementById('modalPagos').style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Bloquear scroll
+        }
+
+        // Función para CERRAR el modal
+        function cerrarModalPagos() {
+            document.getElementById('modalPagos').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restaurar scroll
+        }
+
+        // Función para mostrar mensaje de carrito vacío con diseño mejorado
+        function mostrarMensajeCarritoVacio() {
+            // Crear el contenedor del mensaje
+            const mensajeContainer = document.createElement('div');
+            mensajeContainer.id = 'mensaje-carrito-vacio';
+            mensajeContainer.style.cssText = `
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 400px;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+            z-index: 1001;
+            text-align: center;
+            animation: fadeIn 0.3s ease-out;
+        `;
+
+            // Contenido del mensaje
+            mensajeContainer.innerHTML = `
+            <div style="margin-bottom: 15px;">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 22C9.55228 22 10 21.5523 10 21C10 20.4477 9.55228 20 9 20C8.44772 20 8 20.4477 8 21C8 21.5523 8.44772 22 9 22Z" stroke="#FF5252" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M20 22C20.5523 22 21 21.5523 21 21C21 20.4477 20.5523 20 20 20C19.4477 20 19 20.4477 19 21C19 21.5523 19.4477 22 20 22Z" stroke="#FF5252" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M1 1H5L7.68 14.39C7.77144 14.8504 8.02191 15.264 8.38755 15.5583C8.75318 15.8526 9.2107 16.009 9.68 16H19.4C19.8693 16.009 20.3268 15.8526 20.6925 15.5583C21.0581 15.264 21.3086 14.8504 21.4 14.39L23 6H6" stroke="#4CAF50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.3em;">Studio & Progetto</h3>
+            <p style="color: #666; margin-bottom: 20px;">"¡Ya casi terminas! Elige los productos de tu preferencia antes de continuar con el pago. "</p>
+            <p style="color: #ff5252; font-weight: bold; margin-bottom: 20px;">⚠️ Carrito vacío. ¡Agrega algo ya!</p>
+            <button onclick="cerrarMensajeCarritoVacio()" style="
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                padding: 10px 25px;
+                border-radius: 25px;
+                cursor: pointer;
+                font-size: 1em;
+                transition: background-color 0.3s;
+            ">Entendido</button>
+        `;
+
+            // Crear overlay
+            const overlay = document.createElement('div');
+            overlay.id = 'overlay-carrito-vacio';
+            overlay.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1000;
+            animation: fadeIn 0.3s ease-out;
+        `;
+
+            // Añadir al documento
+            document.body.appendChild(overlay);
+            document.body.appendChild(mensajeContainer);
+
+            // Añadir estilo de animación
+            const style = document.createElement('style');
+            style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+        `;
+            document.head.appendChild(style);
+        }
+
+        // Función para cerrar el mensaje de carrito vacío
+        function cerrarMensajeCarritoVacio() {
+            const mensaje = document.getElementById('mensaje-carrito-vacio');
+            const overlay = document.getElementById('overlay-carrito-vacio');
+
+            if (mensaje) mensaje.remove();
+            if (overlay) overlay.remove();
+        }
+
+        // Cierra al hacer clic fuera del modal
+        window.onclick = function (event) {
+            // Cerrar modal de pagos
+            if (event.target == document.getElementById('modalPagos')) {
+                cerrarModalPagos();
+            }
+
+            // Cerrar mensaje de carrito vacío al hacer clic en el overlay
+            if (event.target == document.getElementById('overlay-carrito-vacio')) {
+                cerrarMensajeCarritoVacio();
+            }
+        }
+    </script>
+</body>
+
+</html>
